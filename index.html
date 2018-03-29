@@ -1,9 +1,91 @@
 <html>
 	<head>
-		<script src="p5.min.js"></script>
-		<script src="cube.js"></script>
+		
+		
 	</head>
 	<body>
 
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRangeX">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRangeY">
+  <input type="range" min="1" max="100" value="50" class="slider" id="myRangeZ">
+  <br/>
+  <input type="range" min="1" max="100" value="50" class="slider" id="rotateX">
+  <input type="range" min="1" max="100" value="50" class="slider" id="rotateY">
+  <input type="range" min="1" max="100" value="50" class="slider" id="rotateZ">
+</div>
+
+ <div id = "p5sketch">
 	</body>
+	<script src="p5.min.js"></script>
+	<script src="cube.js"></script>
+	<script type="text/javascript">
+	
+	
+
+	let set = {
+		X_GAP: 0, 
+		Y_GAP: 0, 
+		Z_GAP: 0,
+		X_ROTATE: 0,
+		Y_ROTATE: 0,
+		Z_ROTATE: 0
+	}
+	
+	var TEST = "TEST";
+	
+	document.getElementById('myRangeX').oninput  = function() {
+		 set.X_GAP = document.getElementById("myRangeX").value;
+	};
+
+	document.getElementById('myRangeY').oninput  = function() {
+		 set.Y_GAP = document.getElementById("myRangeY").value;
+	};
+
+	document.getElementById('myRangeZ').oninput  = function() {
+		 set.Z_GAP = document.getElementById("myRangeZ").value;
+	};
+
+	document.getElementById('rotateX').oninput  = function() {
+		 set.X_ROTATE = document.getElementById("rotateX").value;
+	};
+
+	document.getElementById('rotateY').oninput  = function() {
+		 set.Y_ROTATE = document.getElementById("rotateY").value;
+	};
+
+	document.getElementById('rotateZ').oninput  = function() {
+		 set.Z_ROTATE = document.getElementById("rotateZ").value;
+	};
+
+	
+
+// var s = function( sketch ) {
+
+//   var x = 100; 
+//   var y = 100;
+
+//   sketch.setup = function() {
+  	
+//     sketch.createCanvas(200, 200);
+//   };
+
+//   sketch.draw = function() {
+
+//     sketch.background(0);
+//     sketch.fill(255);
+//     sketch.rect(val,y,50,50);
+//   };
+// };
+
+// var  myp5 = new p5(s);
+
+	var c = new Cube(set);
+	
+	var myp5 = new p5(c.get);	
+	
+
+	
+	</script>
+	<div id='ta'></div>
 </html>
